@@ -1,6 +1,7 @@
 # Node files
 node_modules/
 # Exercism  
+.exercism/
 .solution.json
 # Elixir/Erlang files
 *.dump
