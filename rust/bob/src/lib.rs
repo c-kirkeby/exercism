@@ -1,14 +1,9 @@
 pub fn reply(message: &str) -> &str {
-    if is_yelling(message) && is_question(message) {
-        "Calm down, I know what I'm doing!"
-    } else if is_question(message) {
-        "Sure."
-    } else if is_saying_nothing(message) {
-        "Fine. Be that way!"
-    } else if is_yelling(message) {
-        "Whoa, chill out!"
-    } else {
-        "Whatever."
+    match message.trim() {
+        m if is_yelling(m) && is_question(m) => "Calm down, I know what I'm doing!",
+        m if is_question(m) => "Sure.",
+        m if is_saying_nothing(m) => "Fine. Be that way!",
+        _ => "Whatever."
     }
 }
 
@@ -17,9 +12,9 @@ fn is_yelling(message: &str) -> bool {
 }
 
 fn is_question(message: &str) -> bool {
-    message.trim().ends_with("?")
+    message.ends_with("?")
 }
 
 fn is_saying_nothing(message: &str) -> bool {
-    message.trim() == ""
+    message == ""
 }
